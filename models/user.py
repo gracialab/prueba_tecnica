@@ -16,11 +16,10 @@ class User(BaseModel, Base):
     __tablename__ = 'users'
     id = Column(String(60), primary_key=True)
     email = Column(String(128), nullable=False)
-    password_hash = Column(String(128), nullable=False)
+    password_hash = Column(String(255), nullable=False)
     first_name = Column(String(128), nullable=True)
     last_name = Column(String(128), nullable=True)
     is_user = Column(Boolean, default=True)
-
 
     @property
     def password(self):
