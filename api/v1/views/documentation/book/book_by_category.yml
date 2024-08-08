@@ -30,4 +30,4 @@ responses:
              description: book name
           file_name:
             type: string
-            description: files containing book information
+            description: files containing book
