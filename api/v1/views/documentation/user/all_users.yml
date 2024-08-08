@@ -1,0 +1,29 @@
+retrieves a list of all users.
+---
+tags:
+  - Users
+
+responses:
+  200:
+    description: request executed successfully
+    schema:
+      type: array
+      items:
+        properties:
+          __class__:
+            type: string
+          id:
+            type: string
+            description: The uuid of the instance
+          email:
+             type: string
+             description: user's email
+          password:
+             type: string
+             description: user's password
+          first_name:
+             type: string
+             description: user's first name
+          last_name:
+             type: string
+             description: user's last name

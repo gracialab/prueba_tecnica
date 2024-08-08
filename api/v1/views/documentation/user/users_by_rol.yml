@@ -1,0 +1,30 @@
+get a list of users based on the rol_id
+---
+tags:
+  - Users
+parameters:
+  - name: rol_id
+    in: path
+    type: string
+    required: true
+    description: The uniqe id of the rol
+responses:
+  404:
+    description: No rol is linked to the ID!
+  200:
+    description: Request completed successfully
+    schema:
+      type: array
+      items:
+        properties:
+          __class__:
+            type: string
+          id:
+            type: string
+            description: The uuid of the instance
+          rol_id:
+             type: string
+             description: uuid of the user's rol
+          name:
+             type: string
+             description: user name
