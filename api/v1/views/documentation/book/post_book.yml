@@ -1,0 +1,29 @@
+
+Post a new book
+---
+tags:
+  - Books
+
+parameters:
+  - name: request
+    in: body
+    required: true
+    requires:
+      - name
+      - description
+    properties:
+      name:
+        type: string
+        description: category name
+      description:
+        type: string
+        description: information about the category
+
+
+responses:
+  404:
+    description: category not found!
+  400:
+    description: Not a valid JSON or missing name
+  201:
+    description: Request completed successfully

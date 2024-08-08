@@ -28,6 +28,6 @@ responses:
           name:
              type: string
              description: book name
-          file_name:
+          description:
             type: string
-            description: files containing book
+            description: information about the category

@@ -1,0 +1,31 @@
+Updates a book based on id
+---
+tags:
+  - Books
+parameters:
+  - name: book_id
+    in: path
+    type: string
+    required: true
+    description: id of the book
+  - name: update_request
+    in: body
+    required: true
+    requires:
+  - name
+  - description
+properties:
+  name:
+    type: string
+    description: category name
+  description:
+    type: string
+    description: information about the category
+
+responses:
+  404:
+    description: book not found!
+  400:
+    description: Not a valid JSON
+  200:
+    description: Request completed successfully
