@@ -53,4 +53,16 @@ export class AuthService {
         // Create and return an access token
         return await createAccessToken({ id: user._id });
     }
+
+    /**
+     * Retrieves a user profile from the database based on the provided user ID.
+     *
+     * @param {string} userId - The ID of the user whose profile is to be retrieved. This should be a valid MongoDB ObjectId.
+     * @returns {Promise<Object|null>} - A promise that resolves to the user profile object if found, or null if no user is found with the provided ID.
+     * 
+     * @throws {Error} - Throws an error if there is a problem with the database query.
+     */
+    async getUserProfile(userId) {
+        return await User.findById(userId);
+    }
 }

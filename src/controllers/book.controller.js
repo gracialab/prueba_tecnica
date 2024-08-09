@@ -44,7 +44,7 @@ export const getAllBooks = async (req, res) => {
         const booksUser = await bookService.getBooksByUserId(userId);
 
         if (booksUser.length === 0) {
-            return res.status(200).json({ message: "The user does not have any books available." });
+            return res.status(404).json({ message: "The user does not have any books available." });
         }
 
         const booksDTO = booksUser.map(book => new BookDTO(book));

@@ -3,7 +3,9 @@ import morgan from "morgan";
 import authRouter from "../routes/auth.route.js";
 import bookRouter from "../routes/book.routes.js";
 import cookieParser from "cookie-parser";
+import dotenv from 'dotenv';
 
+dotenv.config();
 const app = express();
 
 app.use(morgan("dev"));
