@@ -1,5 +1,6 @@
+-- start app
 HBNB_MYSQL_USER=glab_test_dev HBNB_MYSQL_PWD=glab_test_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=glab_test_db HBNB_TYPE_STORAGE=db python3 -m app.app_test
 
-
+-- start api
 HBNB_MYSQL_USER=glab_test_dev HBNB_MYSQL_PWD=glab_test_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=glab_test_db HBNB_TYPE_STORAGE=db HBNB_TYPE_STORAGE=db HBNB_API_HOST=0.0.0.0 HBNB_API_PORT=5001 python3 -m api.v1.app
 
