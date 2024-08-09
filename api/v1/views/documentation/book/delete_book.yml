@@ -1,0 +1,15 @@
+deletes a book based on id
+---
+tags:
+  - Books
+parameters:
+  - name: book_id
+    in: path
+    type: string
+    required: true
+    description: id of the book
+responses:
+  404:
+    description: book not found!
+  200:
+    description: Request completed successfully

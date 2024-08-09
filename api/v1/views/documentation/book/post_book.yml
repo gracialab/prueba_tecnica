@@ -1,0 +1,28 @@
+Post a new book
+---
+tags:
+  - Books
+
+parameters:
+  - name: request
+    in: body
+    required: true
+    requires:
+      - name
+      - description
+    properties:
+      name:
+        type: string
+        description: book name
+      description:
+        type: string
+        description: information about the book
+
+
+responses:
+  404:
+    description: book not found!
+  400:
+    description: Not a valid JSON or missing name
+  201:
+    description: Request completed successfully

@@ -1,0 +1,26 @@
+Gets the list of all Categories
+---
+tags:
+  - Category
+parameters:
+  - name: request
+    in: path
+    required: true
+    requires:
+      - id
+      - name
+      - description
+    properties:
+      id:
+        type: string
+        description: The uuid of the category instance
+      name:
+        type: string
+        description: category name
+      description:
+        type: string
+        description: information about the category
+  
+responses:
+  200:
+    description: Request completed successfully

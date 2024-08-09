@@ -1,0 +1,28 @@
+/protected:
+    get:
+      summary: Protected endpoint
+      tags: [Protected]
+      description: Allows authenticated users to access a protected endpoint based on their user type.
+      security:
+        - bearerAuth: []
+      responses:
+        200:
+          description: Message indicating user type
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  is_user:
+                    type: boolean
+        401:
+          description: Unauthorized access
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string

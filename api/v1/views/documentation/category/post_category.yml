@@ -1,0 +1,22 @@
+Posts a new category.
+---
+tags:
+  - Category
+parameters:
+  - name: request
+    in: body
+    required: true
+    requires:
+      - name
+      - description
+    properties:
+      name:
+        type: string
+        description: category name
+      description:
+        type: string
+        description: information about the category
+
+responses:
+  201:
+    description: Request completed successfully

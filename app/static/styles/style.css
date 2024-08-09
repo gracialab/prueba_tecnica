@@ -1,0 +1,221 @@
+/* Apply Roboto font to all elements */
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+
+
+/* Full height for the body */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Body styling */
+body {
+    color: #181818;
+    font-size: 16px;
+    font-family: Circular, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container styling */
+.container {
+    max-width: 1000px;
+    margin: 30px auto;
+    width: 100%;
+    flex: 1 0 auto;
+}
+
+/* Dropdown menu styles */
+.dropdown-menu {
+    background-color: #aaa; /* Gray background for dropdown menu */
+}
+
+/* Navbar toggler styles */
+.navbar-toggler {
+    border: 2px solid #dddddd; /* Light gray border */
+}
+
+.navbar-toggler:hover {
+    background: #845484; /* Dark purple background on hover */
+}
+
+
+
+/* Background colors for different elements */
+.bg-purple-light:hover {
+    background: #7c417c; /* Dark purple background on hover */
+}
+
+.bg-purple {
+    background: #f0eeee; /* Gradient from purple to dark blue */
+    color: #000;
+
+}
+
+.bg-table {
+    background: #845484; /* Dark purple background for tables */
+}
+
+.bg-grey-light:hover {
+    background: #dfdfdf; /* Light gray background on hover */
+}
+
+/* Border and shadow styles */
+.border-table {
+    border: #845484 solid 2px; /* Dark purple border */
+    box-shadow: 0 0 10px 8px #11111199; /* Dark shadow effect */
+}
+
+/* Container size */
+.size-container {
+    width: 60%; /* Container width */
+}
+
+
+
+/* Button styles */
+.crear {
+    padding: 2px 20px;
+    border: none;
+    background: linear-gradient(76.8deg, rgb(216, 206, 218) 3.6%, rgb(141, 141, 143) 90.4%); /* Gradient background */
+    color: white; /* White text color */
+    border-radius: 15px;
+    height: 45px;
+}
+
+/* Table cell border styles */
+td, th {
+    border: #845484 solid 0.5px; /* Dark purple border for table cells */
+}
+
+/* Margin for elements */
+.mg-left-right {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* Hover effect for navigation items */
+.hv-line:after {
+    content: "";
+    width: 0;
+    height: 4px;
+    background: #fff; /* White line */
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    transition: all 1s;
+    will-change: width;
+}
+
+.hv-line:hover:after {
+    width: 100%; /* Expand the line width on hover */
+    right: 0;
+}
+
+/* Icon styles */
+.style-icon {
+    border: none;
+    background: transparent;
+}
+
+/* Table styling */
+.word-table {
+    padding: 10px;
+    margin: 6px;
+    font-size: 15px;
+}
+
+.category-table {
+    padding: 5px;
+    margin: 6px;
+    font-size: 20px;
+}
+
+.hd-table {
+    background: #eee; /* Light gray background for table headers */
+}
+
+/* Button styling */
+.btn-all {
+    background: linear-gradient(to left, #afa6ac, #dcdadf); /* Gradient from pink to blue */
+    width: 100%;
+    padding: 5px;
+    border-radius: 10px;
+    color: #fff; /* White text color */
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-all:hover {
+    background-image: linear-gradient(to right, #e4cedd, #9d9aa1); /* Reverse gradient on hover */
+    transition: .5s; /* Smooth transition effect */
+}
+
+/* Login icon styling */
+.style-icon-login {
+    border: none;
+    width: 100px;
+    margin-top: 10px;
+}
+
+/* Form and label styling */
+.title-test, .formulario > div {
+    padding: 20px 0;
+    border-bottom: 1px solid #ccc; /* Light gray border */
+}
+
+.formulario input {
+    display: none; /* Hide input elements */
+}
+
+.label-test {
+    margin: 5px;
+    min-width: 180px;
+    color: #000; /* Black text color */
+    padding: 5px 15px;
+    font-size: 1em;
+    border: 2px solid #845484; /* Dark purple border */
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.label-test:hover {
+    background: #84548477; /* Light purple background on hover */
+}
+
+.formulario input[type="checkbox"]:checked + label {
+    padding: 5px 15px;
+    background: #845484; /* Dark purple background when checked */
+    border-radius: 20px;
+    color: #fff; /* White text color */
+}
+
+
+/* Archivo CSS externo o dentro de una etiqueta <style> en el HTML */
+.table thead th {
+    color: gray;
+}
+
+
+/* Footer styling */
+footer {
+    background: f0eeee; 
+    height: 300px; /* Aumenta la altura del footer */
+    width: 100%;
+    border-top: 2px solid #faf4f4; /* Contorno superior más grueso */
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
+    position: fixed; /* Asegura que el footer se quede en la parte inferior */
+    bottom: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Opcional: agrega una sombra sutil para un efecto de contorno más definido */
+}
