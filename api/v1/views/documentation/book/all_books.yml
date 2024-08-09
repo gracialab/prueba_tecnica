@@ -1,0 +1,24 @@
+Consult all the books
+---
+tags:
+  - Books
+
+responses:
+  200:
+    description: Successful request
+    schema:
+      properties:
+        __class__:
+          type: string
+        name:
+           type: string
+           description: book name
+        description:
+          type: string
+          description: information about the books
+
+responses:
+  404:
+    description: book not found!
+  500:
+    description: Server Error

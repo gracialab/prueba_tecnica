@@ -26,4 +26,4 @@ responses:
            description: book name
         description:
           type: string
-          description: information about the category
+          description: information about the book

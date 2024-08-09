@@ -14,9 +14,9 @@ def login():
 def register():
     return render_template('registro.html')
 
-@app_routes.route('/main')
+@app_routes.route('/allbooks')
 def index():
-    return render_template('main.html')
+    return render_template('allbooks.html')
 
 @app_routes.route('/admin')
 def get_categories():

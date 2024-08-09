@@ -13,8 +13,8 @@ class Category(BaseModel, Base):
 
     __tablename__ = 'categories'
     id = Column(String(60), primary_key=True)
-    name = Column(String(128), nullable=False)
-    description = Column(String(128), nullable=True)
+    name = Column(String(255), nullable=False)
+    description = Column(String(255), nullable=True)
     books= relationship("Book",
                             backref="categories",
                             cascade="all, delete, delete-orphan")

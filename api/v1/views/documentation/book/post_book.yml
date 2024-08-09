@@ -1,4 +1,3 @@
-
 Post a new book
 ---
 tags:
@@ -14,15 +13,15 @@ parameters:
     properties:
       name:
         type: string
-        description: category name
+        description: book name
       description:
         type: string
-        description: information about the category
+        description: information about the book
 
 
 responses:
   404:
-    description: category not found!
+    description: book not found!
   400:
     description: Not a valid JSON or missing name
   201:

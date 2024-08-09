@@ -3,11 +3,11 @@ Updates a book based on id
 tags:
   - Books
 parameters:
-  - name: category_id
+  - name: book_id
     in: path
     type: string
     required: true
-    description: the unique id of the category
+    description: the unique id of the book
   - name: request
     in: body
     required: true
@@ -17,10 +17,10 @@ parameters:
     properties:
       name:
         type: string
-        description: category name
+        description: body name
       description:
         type: string
-        description: information about the category
+        description: information about the book
 
 responses:
   404:

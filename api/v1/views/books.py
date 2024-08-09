@@ -25,6 +25,19 @@ def get_books(category_id):
 
     return jsonify(list_books)
 
+@app_views.route('/books', methods=['GET'])
+@swag_from('documentation/book/all_books.yml', methods=['GET'])
+def get_all_books():
+    """ Consult all the books"""
+    books = storage.all(Book).values()
+
+    books_data = [{
+        'name': book.name,
+        'description': book.description
+    } for book in books]
+
+    return jsonify(books_data), 200
+
 
 @app_views.route('/books/<book_id>/', methods=['GET'], strict_slashes=False)
 @swag_from('documentation/book/get_book.yml', methods=['GET'])

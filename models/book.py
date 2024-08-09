@@ -10,5 +10,5 @@ class Book(BaseModel, Base):
     __tablename__ = 'books'
     id = Column(String(60), primary_key=True)
     category_id = Column(String(60), ForeignKey('categories.id'), nullable=False)
-    name = Column(String(128), nullable=False)
-    description = Column(String(128), nullable=True)
+    name = Column(String(255), nullable=False)
+    description = Column(String(255), nullable=True)
