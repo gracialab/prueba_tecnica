@@ -1,27 +1,38 @@
 import { z } from "zod";
 
 export const userRegisterSchema = z.object({
-    username: z.string()
-        .min(1, { message: 'Name is required' })
-        .regex(/^[a-zA-Z\s]+$/, { message: 'The name can only contain letters.' })
-        .trim(),
-    email: z.string()
-        .min(1, { message: 'Email is required' })
-        .trim()
-        .email({ message: 'Invalid email' }),
-    password: z.string()
-        .min(8, { message: 'Password must be at least 8 characters' })
-        .max(16, { message: 'Password must be at most 16 characters' })
-        .regex(/^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])\S+$/, { 
-            message: 'Password must include at least one digit, one lowercase letter, and one uppercase letter.'
-        })
+    username: z.string({
+        required_error:  'username is required'
+    })
+    .regex(/^[a-zA-Z\s]+$/, { message: 'The name can only contain letters.' })
+    .trim(),
+    email: z.string({
+        required_error:  'Email is required'
+    })
+    .trim()
+    .email({
+        required_error: 'Invalid Email'
+    }),
+    password: z.string({
+        required_error: 'Password is required'
+    })
+    .regex(/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/, {
+        message: 'Password requirements include length between 8 to 16 characters, with at least one digit, one lowercase letter, and one uppercase letter.'
+    })
 });
 
 export const userLoginSchema = z.object({
-    email: z.string()
-        .min(1, { message: 'Email is required' })
-        .trim()
-        .email({ message: 'Invalid email' }),
-    password: z.string()
-        .min(8, { message: 'Password must be at least 8 characters' })
-});
+    email: z.string({
+        required_error: 'Email is required'
+    })
+    .trim()
+    .email({
+        required_error: 'Invalid Email'
+    }),
+    password: z.string({
+        required_error: 'Password is required'
+    })
+    .regex(/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/, {
+        message: 'Password requirements include length between 8 to 16 characters, with at least one digit, one lowercase letter, and one uppercase letter.'
+    })
+})

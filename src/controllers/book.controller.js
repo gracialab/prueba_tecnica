@@ -1,5 +1,7 @@
-import Book from "../models/book.model.js";
 import { BookDTO } from "../dtos/BookDTO.js";
+import { BookService } from "../services/book.service.js";
+
+const bookService = new BookService();
 
 /**
  * @route   POST /books
@@ -10,21 +12,15 @@ import { BookDTO } from "../dtos/BookDTO.js";
  * @body    {string} author - Author of the book
  * @body    {number} publishedYear - Year the book was published
  * @returns {object} - Created book as BookDTO
+ * @throws  {500} - Internal Server Error if the book creation fails
  */
 export const createBook = async (req, res) => {
     try {
         const { userId } = req;
         const { name, author, publishedYear } = req.body;
 
-        const newBook = new Book({
-            userId,
-            name,
-            author,
-            publishedYear
-        });
-
-        const bookSave = await newBook.save();
-        const bookDTO = new BookDTO(bookSave);
+        const newBook = await bookService.createBook({ userId, name, author, publishedYear });
+        const bookDTO = new BookDTO(newBook);
 
         res.status(201).json(bookDTO);
 
@@ -40,12 +36,12 @@ export const createBook = async (req, res) => {
  * @access  Private
  * @param   {string} userId - ID of the authenticated user
  * @returns {array} - List of books as BookDTO
+ * @throws  {500} - Internal Server Error if the retrieval fails
  */
 export const getAllBooks = async (req, res) => {
     try {
         const { userId } = req;
-
-        const booksUser = await Book.find({ userId });
+        const booksUser = await bookService.getBooksByUserId(userId);
 
         if (booksUser.length === 0) {
             return res.status(200).json({ message: "The user does not have any books available." });
@@ -66,12 +62,13 @@ export const getAllBooks = async (req, res) => {
  * @access  Private
  * @param   {string} id - ID of the book to retrieve
  * @returns {object} - Book as BookDTO
+ * @throws  {404} - Not Found if the book is not found
+ * @throws  {500} - Internal Server Error if the retrieval fails
  */
 export const getBookById = async (req, res) => {
     try {
         const { id } = req.params;
-
-        const bookFound = await Book.findById(id);
+        const bookFound = await bookService.getBookById(id);
 
         if (!bookFound) {
             return res.status(404).json({ message: "Book not found." });
@@ -95,12 +92,13 @@ export const getBookById = async (req, res) => {
  * @body    {string} author - Updated author of the book
  * @body    {number} publishedYear - Updated year the book was published
  * @returns {object} - Updated book as BookDTO
+ * @throws  {404} - Not Found if the book is not found
+ * @throws  {500} - Internal Server Error if the update fails
  */
 export const updateBook = async (req, res) => {
     try {
         const { id } = req.params;
-
-        const bookFound = await Book.findByIdAndUpdate(id, req.body, { new: true });
+        const bookFound = await bookService.updateBook(id, req.body);
 
         if (!bookFound) {
             return res.status(404).json({ message: "Book not found." });
@@ -121,12 +119,13 @@ export const updateBook = async (req, res) => {
  * @access  Private
  * @param   {string} id - ID of the book to delete
  * @returns {object} - Success message
+ * @throws  {404} - Not Found if the book is not found
+ * @throws  {500} - Internal Server Error if the deletion fails
  */
 export const deleteBook = async (req, res) => {
     try {
         const { id } = req.params;
-
-        const bookFound = await Book.findByIdAndDelete(id);
+        const bookFound = await bookService.deleteBook(id);
 
         if (!bookFound) {
             return res.status(404).json({ message: "Book not found." });

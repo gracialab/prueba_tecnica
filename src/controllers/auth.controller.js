@@ -1,7 +1,7 @@
-import bcrypt from "bcryptjs";
-import User from "../models/user.model.js";
-import { createAccessToken } from "../lib/createToken.js";
+import { AuthService } from "../services/auth.service.js";
 import { UserDTO } from "../dtos/UserDTO.js";
+
+const authService = new AuthService();
 
 /**
  * @route   POST /register
@@ -15,24 +15,16 @@ import { UserDTO } from "../dtos/UserDTO.js";
 export const registerUser = async (req, res) => {
     try {
         const { username, email, password } = req.body;
-        const passwordHash = await bcrypt.hash(password, 12);
+        const newUser = await authService.registerUser({ username, email, password });
 
-        const newUser = User({
-            username,
-            email,
-            password: passwordHash,
-        });
-
-        const userSave = await newUser.save();
-
-        const token = await createAccessToken({ id: userSave._id });
+        const token = await authService.createToken(newUser);
         res.cookie("token", token);
 
-        const userDTO = new UserDTO(userSave);
-
+        const userDTO = new UserDTO(newUser);
         res.status(200).json(userDTO);
+
     } catch (error) {
-        console.log(error.message);
+        console.error(error.message);
         res.status(500).json({ message: "An error occurred while registering the user." });
     }
 };
@@ -48,21 +40,18 @@ export const registerUser = async (req, res) => {
 export const loginUser = async (req, res) => {
     try {
         const { email, password } = req.body;
+        const userFound = await authService.loginUser({ email, password });
 
-        const userFound = await User.findOne({ email });
-        if (!userFound) return res.status(404).json({ message: "User not found" });
+        if (!userFound) return res.status(404).json({ message: "User not found or invalid credentials" });
 
-        const passwordValid = await bcrypt.compare(password, userFound.password);
-        if (!passwordValid) return res.status(401).json({ message: "Invalid Password" });
-
-        const token = await createAccessToken({ id: userFound._id });
+        const token = await authService.createToken(userFound);
         res.cookie("token", token);
 
         const userDTO = new UserDTO(userFound);
-
         res.status(200).json(userDTO);
+
     } catch (error) {
-        console.log(error.message);
+        console.error(error.message);
         res.status(500).json({ message: "An error occurred while logging in the user." });
     }
 };
@@ -77,16 +66,15 @@ export const loginUser = async (req, res) => {
 export const profile = async (req, res) => {
     try {
         const { userId } = req;
-
-        const userFound = await User.findById({ _id: userId });
+        const userFound = await authService.getUserProfile(userId);
 
         if (!userFound) return res.status(401).json({ message: "Unauthorized" });
 
         const userDTO = new UserDTO(userFound);
-
         res.status(200).json(userDTO);
+        
     } catch (error) {
-        console.log(error.message);
+        console.error(error.message);
         res.status(500).json({ message: "An error occurred while retrieving the profile." });
     }
 };
