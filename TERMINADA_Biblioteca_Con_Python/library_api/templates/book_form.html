@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <main>
+    <h2>{% if form.instance.pk %}Editar{% else %}Crear{% endif %} Libro</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Guardar</button>
+    </form>
+    <a href="{% url 'book-list' %}" class="button">Volver a la lista</a>
+    <a href="{% url 'api-root' %}" class="button">Volver a la bienvenida</a>
+  </main>
+{% endblock %}
