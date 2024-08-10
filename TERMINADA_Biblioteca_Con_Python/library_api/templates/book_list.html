@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Lista de Libros</h2>
+  <ul>
+    {% for book in books %}
+      <li>
+        <a href="{% url 'book-detail' book.pk %}">{{ book.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'book-create' %}">Crear nuevo libro</a>
+{% endblock %}
+

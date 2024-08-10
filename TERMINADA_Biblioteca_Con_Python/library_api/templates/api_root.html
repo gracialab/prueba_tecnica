@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Bienvenido a la API de la Biblioteca</h1>
+  <p>Utiliza los enlaces en la barra de navegación para acceder a las diferentes secciones.</p>
+  <ul>
+    <li><a href="{% url 'book-list' %}">Lista de Libros</a></li>
+    <li><a href="{% url 'book-create' %}">Crear Nuevo Libro</a></li>
+  </ul>
+{% endblock %}

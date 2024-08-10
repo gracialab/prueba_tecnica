@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>{{ book.title }}</h2>
+  <p>Autor: {{ book.author }}</p>
+  <p>Fecha de publicación: {{ book.published_date }}</p>
+  <p>ISBN: {{ book.isbn }}</p>
+  <p>Páginas: {{ book.pages }}</p>
+  <p>Cubierta: {{ book.cover }}</p>
+  <p>Idioma: {{ book.language }}</p>
+  
+  <!-- Botón de eliminar -->
+  <form method="post" action="{% url 'book-delete' book.pk %}">
+    {% csrf_token %}
+    <button type="submit">Eliminar libro</button>
+  </form>
+
+  <a href="{% url 'book-list' %}" class="button">Volver a la lista</a>
+{% endblock %}

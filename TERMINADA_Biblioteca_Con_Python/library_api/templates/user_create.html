@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Crear Nuevo Usuario</h2>
+  <form method="POST" action="{% url 'user-create' %}">
+    {% csrf_token %}
+    <!-- Campos del formulario -->
+    <button type="submit">Crear</button>
+  </form>
+{% endblock %}
