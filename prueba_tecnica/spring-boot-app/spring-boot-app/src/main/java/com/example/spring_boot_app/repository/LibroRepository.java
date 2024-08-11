@@ -1,4 +1,4 @@
-//Esto va a permitir que podamos poder acceder a base de datos para los diferentes métodos CRUD
+//Esto va a permitir que podamos poder acceder a las base de datos para los diferentes métodos CRUD
 
 package com.example.spring_boot_app.repository;
 

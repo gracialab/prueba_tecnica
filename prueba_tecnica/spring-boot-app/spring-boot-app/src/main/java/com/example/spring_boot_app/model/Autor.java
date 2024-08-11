@@ -18,8 +18,8 @@ import java.util.List;
 @Table(name = "autores")
 public class Autor {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)  //autogenera numeros para la clave primaria
+    @Id  // Clave Primaria de la tabla
+    @GeneratedValue(strategy = GenerationType.IDENTITY)  //autogenera Ids para la clave primaria
     private Integer id;
     private String nombres;
     private String apellidos;

@@ -16,7 +16,7 @@ public class AutorDTO {
     public AutorDTO(Autor autor) {
         this.id = autor.getId();
         this.nombres = autor.getNombres();
-        this.apellidos = autor.getApellidos;
+        this.apellidos = autor.getApellidos();
         this.telefono = autor.getTelefono();
     }
 
