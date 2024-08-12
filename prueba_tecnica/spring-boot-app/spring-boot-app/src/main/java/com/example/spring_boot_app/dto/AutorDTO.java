@@ -12,7 +12,7 @@ public class AutorDTO {
     private String apellidos;
     private String telefono;
 
-    //Permite convertir objetos Autor a autor para traer info desde la BD
+    //Permite convertir objetos de tipo Autor a AutorDTO para traer info desde la BD
     public AutorDTO(Autor autor) {
         this.id = autor.getId();
         this.nombres = autor.getNombres();

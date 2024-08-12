@@ -18,7 +18,7 @@ import java.util.List;
 @Table(name = "autores")
 public class Autor {
 
-    @Id  // Clave Primaria de la tabla
+    @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY)  //autogenera Ids para la clave primaria
     private Integer id;
     private String nombres;
@@ -27,7 +27,8 @@ public class Autor {
     @OneToMany(mappedBy = "autor")
     private List<Libro> libros;
 
-
+    //Este constructor permite inicializar un objeto Autor y adaptarlo o asignarlo a las entidades correspondientes
+    // Es decir, id del DTO al id  de la entidad Autor, asi sucesivamente.
     public Autor(AutorDTO autorDTO) {
         this.id = autorDTO.getId();
         this.nombres = autorDTO.getNombres();
