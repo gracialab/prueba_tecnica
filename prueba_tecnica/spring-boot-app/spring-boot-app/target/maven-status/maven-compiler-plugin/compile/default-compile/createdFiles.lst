@@ -1,0 +1,14 @@
+com/example/spring_boot_app/controller/AutorController.class
+com/example/spring_boot_app/dto/LibroDTO.class
+com/example/spring_boot_app/SpringBootAppApplication.class
+com/example/spring_boot_app/security.class
+com/example/spring_boot_app/dto/AutorDTO.class
+com/example/spring_boot_app/service/FabricaAutorService.class
+com/example/spring_boot_app/repository/AutorRepository.class
+com/example/spring_boot_app/model/Libro.class
+com/example/spring_boot_app/service/AutorService.class
+com/example/spring_boot_app/repository/LibroRepository.class
+com/example/spring_boot_app/controller/LibroController.class
+com/example/spring_boot_app/service/FabricaLibroService.class
+com/example/spring_boot_app/model/Autor.class
+com/example/spring_boot_app/service/LibroService.class
