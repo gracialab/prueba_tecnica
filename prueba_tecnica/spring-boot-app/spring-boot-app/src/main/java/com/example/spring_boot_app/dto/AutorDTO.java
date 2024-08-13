@@ -2,6 +2,10 @@ package com.example.spring_boot_app.dto;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import com.example.spring_boot_app.model.Autor;
 
 @Data
@@ -18,7 +22,13 @@ public class AutorDTO {
         this.nombres = autor.getNombres();
         this.apellidos = autor.getApellidos();
         this.telefono = autor.getTelefono();
+        /*private List<LibroDTO> libroDTO;
+
+        this.libroDTO = new ArrayList<>();
+        autor.getLibros().forEach(
+                libro -> libroDTO.add(new LibroDTO(libro))
+        );
+        */
     }
 
-    
 }

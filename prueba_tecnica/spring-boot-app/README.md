@@ -41,35 +41,41 @@ Antes de ejecutar esta aplicación, asegúrate de tener instalados los siguiente
 ## Ejecución de la Aplicación
 ### Clonar el Repositorio:
 
-- Clona el repositorio del proyecto en tu máquina local.
-bash
-Copy code
-git clone https://github.com/Glozano26/prueba_tecnica
+- Clona el repositorio del proyecto en tu máquina local```
+git clone https://github.com/Glozano26/prueba_tecnica```
 Compilar y Construir el Proyecto:
 
-- Navega al directorio raíz del proyecto y ejecuta Maven para compilar el código y resolver las dependencias.
-bash
-Copy code
-mvn clean install
+- Navega al directorio raíz del proyecto y ejecuta Maven para `construir el proyecto` compilar y resolver las dependencias
+```mvn clean install```
 Ejecutar la Aplicación:
 
 - Inicia la aplicación con el siguiente comando:
-bash
-Copy code
-mvn spring-boot:run
-Acceder a la API:
+```mvn spring-boot:run``` deberás estar en consola en donde está el archivo (pom.xml) para ejecutar el comando.
 
-La aplicación se ejecutará en http://localhost:8080. Puedes acceder a los diferentes endpoints de la API utilizando herramientas como Postman o URL.
+## Acceder a la API:
 
--**Endpoints Disponibles**:
-AutorController
-1. POST /api/v1/biblioteca: Guarda un nuevo autor.
-2. GET /api/v1/biblioteca: Obtiene una lista de todos los autores.
-3. GET /api/v1/biblioteca/{id}: Obtiene un autor por su ID.
-4. DELETE /api/v1/biblioteca/{id}: Elimina un autor por su ID.
+La aplicación se ejecutará en http://localhost:8080. Puedes acceder a los diferentes endpoints de la API utilizando herramientas como Postman o cURL.
+
+### Endpoints Disponibles:
+
+**AutorController:**
+- POST /api/v1/biblioteca: Guarda un nuevo autor.
+- GET /api/v1/biblioteca: Obtiene una lista de todos los autores.
+- GET /api/v1/biblioteca/{id}: Obtiene un autor por su ID.
+- DELETE /api/v1/biblioteca/{id}: Elimina un autor por su ID.
 
 **LibroController**:
 - POST /api/v1/libros: Guarda un nuevo libro.
 - GET /api/v1/libros: Obtiene una lista de todos los libros.
 - GET /api/v1/libros/{id}: Obtiene un libro por su ID.
 - DELETE /api/v1/libros/{id}: Elimina un libro por su ID.
+
+
+## Configuración de Seguridad
+La aplicación utiliza Spring Security con autenticación básica HTTP. Por defecto, todos los puntos de extremo requieren autenticación.
+
+### Detalles de Configuración:
+
+* Las configuraciones de seguridad están definidas en la clase Security.java.
+* La protección CSRF está deshabilitada para simplificar este proyecto.
+* Asegúrate de que cualquier dato sensible o entorno de producción tenga las medidas de seguridad adecuadas.

@@ -3,7 +3,7 @@ package com.example.spring_boot_app.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import com.example.spring_boot_app.dto.LibroDTO;
-import com.example.spring_boot_app.dto.LibroService;
+import com.example.spring_boot_app.service.LibroService;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 

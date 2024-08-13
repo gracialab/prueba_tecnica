@@ -2,11 +2,12 @@ package com.example.spring_boot_app.service;
 
 
 import com.example.spring_boot_app.dto.LibroDTO;
-import com.example.spring_boot_app.dto.Autor;
+import com.example.spring_boot_app.model.Autor;
 import com.example.spring_boot_app.repository.AutorRepository;
 import com.example.spring_boot_app.repository.LibroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.List;
 
 @Service
 public class LibroService {
@@ -23,10 +24,10 @@ public class LibroService {
 
     public LibroDTO save(LibroDTO libroDTO){
         //buscar autor
-        Autor autor = AutorRepository.findById(libroDTO.getIdAutor()).get();
+        Autor autor = autorRepository.findById(libroDTO.getId()).get();
         libroDTO.setAutorDto( fabricaAutorService.crearAutorDTO(autor));
 
-        return fabricaLibroService.crearLibroDTO( LibroRepository.save(fabricaLibroService.crearLibro(libroDTO) ) );
+        return fabricaLibroService.crearLibroDTO(libroRepository.save(fabricaLibroService.crearLibro(libroDTO) ) );
     }
     public List<LibroDTO> findAll(){
         return fabricaLibroService.crearLibrosDTO(libroRepository.findAll());
