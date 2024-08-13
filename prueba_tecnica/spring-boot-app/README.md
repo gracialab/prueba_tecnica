@@ -45,12 +45,15 @@ Antes de ejecutar esta aplicación, asegúrate de tener instalados los siguiente
 git clone https://github.com/Glozano26/prueba_tecnica```
 Compilar y Construir el Proyecto:
 
-- Navega al directorio raíz del proyecto y ejecuta Maven para `construir el proyecto` compilar y resolver las dependencias
-```mvn clean install```
-Ejecutar la Aplicación:
-
-- Inicia la aplicación con el siguiente comando:
-```mvn spring-boot:run``` deberás estar en consola en donde está el archivo (pom.xml) para ejecutar el comando.
+- Navega al directorio raíz del proyecto y ejecuta Maven para `construir el proyecto` compilar y resolver las dependencias ejecuta:
+   ```
+   mvn clean install
+   ```
+- Ejecutar la Aplicación para inicializarla con el siguiente comando:
+   ```
+   mvn spring-boot:run
+   ```
+   deberás estar en consola en donde está el archivo (pom.xml) para ejecutar el comando.
 
 ## Acceder a la API:
 
